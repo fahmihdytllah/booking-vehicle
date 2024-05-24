@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" class="light-style layout-wide customizer-hide" dir="ltr" data-theme="theme-default" data-assets-path="<%= assetsUrl %>" data-template="horizontal-menu-template">
+  <head>
+    <%- include('../_layouts/elements-head') %>
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="<%= assetsUrl %>vendor/libs/apex-charts/apex-charts.css" />
+
+    <!-- Page CSS -->
+    
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <!-- Menu -->
+        <%- include('../_layouts/elements-menu-approver') %>
+        <!-- / Menu -->
+
+        <!-- Layout container -->
+        <div class="layout-page">
+          <!-- Navbar -->
+          <%- include('../_layouts/elements-navbar') %>
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="py-3 mb-4"><span class="text-muted fw-light">Dasbor /</span> Home</h4>
+              
+              <div class="row">
+                <!-- Cards with few info -->
+                <div class="col-lg-3 col-sm-6 mb-4">
+                  <div class="card h-100">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                      <div class="card-title mb-0">
+                        <h5 class="mb-0 me-2 totalVehicles">0</h5>
+                        <small>Total Kendaran</small>
+                      </div>
+                      <div class="card-icon">
+                        <span class="badge bg-label-primary rounded-pill p-2">
+                          <i class='ti ti-car ti-sm'></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 mb-4">
+                  <div class="card h-100">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                      <div class="card-title mb-0">
+                        <h5 class="mb-0 me-2 totalDrivers">0</h5>
+                        <small>Total Driver</small>
+                      </div>
+                      <div class="card-icon">
+                        <span class="badge bg-label-secondary rounded-pill p-2">
+                          <i class='ti ti-steering-wheel ti-sm'></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 mb-4">
+                  <div class="card h-100">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                      <div class="card-title mb-0">
+                        <h5 class="mb-0 me-2 totalBookings">0</h5>
+                        <small>Total Pemesanan</small>
+                      </div>
+                      <div class="card-icon">
+                        <span class="badge bg-label-success rounded-pill p-2">
+                          <i class='ti ti-shopping-cart ti-sm'></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 mb-4">
+                  <div class="card h-100">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                      <div class="card-title mb-0">
+                        <h5 class="mb-0 me-2 totalAdmins">0</h5>
+                        <small>Total User</small>
+                      </div>
+                      <div class="card-icon">
+                        <span class="badge bg-label-info rounded-pill p-2">
+                          <i class='ti ti-user-cog ti-sm'></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--/ Cards with few info -->
+                
+                <!-- Radial bar Chart -->
+                <div class="col-md-6 col-12 mb-4">
+                  <div class="card">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                      <h5 class="card-title mb-0">Statistik Kendaraan</h5>
+                      <div class="dropdown">
+                        <button type="button" class="btn dropdown-toggle p-0" data-bs-toggle="dropdown" aria-expanded="false"><i class="ti ti-calendar"></i></button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a href="javascript:void(0);" class="dropdown-item d-flex align-items-center">Today</a></li>
+                          <li><a href="javascript:void(0);" class="dropdown-item d-flex align-items-center">Yesterday</a></li>
+                          <li><a href="javascript:void(0);" class="dropdown-item d-flex align-items-center">Last 7 Days</a></li>
+                          <li><a href="javascript:void(0);" class="dropdown-item d-flex align-items-center">Last 30 Days</a></li>
+                          <li>
+                            <hr class="dropdown-divider">
+                          </li>
+                          <li><a href="javascript:void(0);" class="dropdown-item d-flex align-items-center">Current Month</a></li>
+                          <li><a href="javascript:void(0);" class="dropdown-item d-flex align-items-center">Last Month</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div id="radialBarChart"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /Radial bar Chart -->
+                
+                <!-- Donut Chart -->
+                <div class="col-md-6 col-12 mb-4">
+                  <div class="card">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                      <div>
+                        <h5 class="card-title mb-0">Rasio Pemesanan</h5>
+                        <small class="text-muted">Pemesanan untuk berbagai kategori</small>
+                      </div>
+                      <div class="dropdown d-none d-sm-flex">
+                        <button type="button" class="btn dropdown-toggle px-0" data-bs-toggle="dropdown" aria-expanded="false"><i class="ti ti-calendar"></i></button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a href="javascript:void(0);" class="dropdown-item d-flex align-items-center">Today</a></li>
+                          <li><a href="javascript:void(0);" class="dropdown-item d-flex align-items-center">Yesterday</a></li>
+                          <li><a href="javascript:void(0);" class="dropdown-item d-flex align-items-center">Last 7 Days</a></li>
+                          <li><a href="javascript:void(0);" class="dropdown-item d-flex align-items-center">Last 30 Days</a></li>
+                          <li>
+                            <hr class="dropdown-divider">
+                          </li>
+                          <li><a href="javascript:void(0);" class="dropdown-item d-flex align-items-center">Current Month</a></li>
+                          <li><a href="javascript:void(0);" class="dropdown-item d-flex align-items-center">Last Month</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div id="donutChart"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /Donut Chart -->
+
+
+              </div>
+            </div>
+            <!-- / Content -->
+
+            <!-- Footer -->
+            <%- include('../_layouts/elements-footer') %>
+            <!-- / Footer -->
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+
+      <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+      <div class="drag-target"></div>
+    </div>
+    <!-- / Layout wrapper -->
+    
+    <!-- Core JS -->
+    <%- include('../_layouts/elements-js') %>
+
+    <!-- Vendors JS -->
+    <script src="<%= assetsUrl %>vendor/libs/apex-charts/apexcharts.js"></script>
+  
+    <!-- Page JS -->
+    <script src="/assets/js/pages-dashboard-approver.js"></script>
+    
+  </body>
+</html>

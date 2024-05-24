@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" class="light-style layout-wide customizer-hide" dir="ltr" data-theme="theme-default" data-assets-path="<%= assetsUrl %>" data-template="horizontal-menu-template">
+  <head>
+    <%- include('../_layouts/elements-head') %>
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="<%= assetsUrl %>vendor/libs/sweetalert2/sweetalert2.css" />
+    <link rel="stylesheet" href="<%= assetsUrl %>vendor/libs/spinkit/spinkit.css" />
+
+    <!-- Page CSS -->
+    
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <!-- Menu -->
+        <%- include('../_layouts/elements-menu-approver') %>
+        <!-- / Menu -->
+
+        <!-- Layout container -->
+        <div class="layout-page">
+          <!-- Navbar -->
+          <%- include('../_layouts/elements-navbar') %>
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="py-3 mb-4"><span class="text-muted fw-light">Dasbor /</span> Kelola Driver</h4>
+              <button type="button" class="btn rounded-pill btn-label-primary" data-bs-toggle="modal" data-bs-target="#modalAddDriver"><span class="ti-xs ti ti-hash me-1"></span>Tambah Supir</button>
+
+              <!-- Borderless Table -->
+              <div class="card mt-3 card-table">
+                <h5 class="card-header">Daftar Supir</h5>
+                <div class="table-responsive text-nowrap">
+                  <table class="table table-borderless">
+                    <thead>
+                      <tr>
+                        <th>Nama</th>
+                        <th>SIM</th>
+                        <th>Status</th>
+                        <th>Nomer HP</th>
+                        <th>Aksi</th>
+                      </tr>
+                    </thead>
+                    <tbody id="listDrivers">
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!--/ Borderless Table -->
+              
+              <!-- Modal Tambah Driver -->
+              <div class="modal fade" id="modalAddDriver" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modalCenterTitle">Tambah Driver</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form class="modal-body formAddDriver" method="POST">
+                      <div class="row">
+                        <div class="col-12 mb-3">
+                          <label for="name" class="form-label">Nama</label>
+                          <input type="text" id="name" name="name" class="form-control" placeholder="Masukkan nama Driver" />
+                        </div>
+                        <div class="col-6 mb-3">
+                          <label for="licenseNumber" class="form-label">Sim</label>
+                          <input type="number" id="licenseNumber" name="licenseNumber" class="form-control" placeholder="Masukkan nomer sim Driver" />
+                        </div>
+                        <div class="col-6 mb-3">
+                          <label for="phoneNumber" class="form-label">Nomer Handphone</label>
+                          <input type="number" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="Masukkan nomer handphone Driver" />
+                        </div>
+                        <div class="col-12">
+                          <button type="submit" class="btn btn-primary me-2 d-grid w-100">Tambah Driver</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Modal Edit Driver -->
+              <div class="modal fade" id="modalEditDriver" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modalCenterTitle">Edit Driver</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form class="modal-body formEditDriver" method="POST">
+                      <div class="row">
+                        <div class="col-6 mb-3">
+                          <label for="editName" class="form-label">Nama</label>
+                          <input type="text" id="editName" name="name" class="form-control" placeholder="Masukkan nama Driver" />
+                        </div>
+                        <div class="col-6 mb-3">
+                          <label for="editLicenseNumber" class="form-label">Sim</label>
+                          <input type="number" id="editLicenseNumber" name="licenseNumber" class="form-control" placeholder="Masukkan sim Driver" />
+                        </div>
+                        <div class="col-6 mb-3">
+                          <label for="editPhoneNumber" class="form-label">Nomer Handphone</label>
+                          <input type="number" id="editPhoneNumber" name="phoneNumber" class="form-control" placeholder="Masukkan nomer handphone Driver" />
+                        </div>
+                        <div class="col-6 mb-3">
+                          <label for="editStatus" class="form-label">Status</label>
+                          <select class="form-control" id="editStatus" name="status">
+                            <option value="available">Tersedia</option>
+                            <option value="unavailable">Tidak Tersedia</option>
+                          </select>
+                        </div>
+                        <div class="col-12">
+                          <button type="submit" class="btn btn-primary me-2 d-grid w-100">Simpan Perubahan</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <!-- / Content -->
+
+            <!-- Footer -->
+            <%- include('../_layouts/elements-footer') %>
+            <!-- / Footer -->
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+
+      <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+      <div class="drag-target"></div>
+    </div>
+    <!-- / Layout wrapper -->
+    
+    <!-- Core JS -->
+    <%- include('../_layouts/elements-js') %>
+
+    <!-- Vendors JS -->
+    <script src="<%= assetsUrl %>vendor/libs/moment/moment.js"></script>
+    <script src="<%= assetsUrl %>vendor/libs/sweetalert2/sweetalert2.js"></script>
+    <script src="<%= assetsUrl %>vendor/libs/block-ui/block-ui.js"></script>
+    
+    <!-- Page JS -->
+    <script src="/assets/js/pages-Driver.js"></script>
+    
+  </body>
+</html>

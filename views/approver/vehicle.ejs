@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" class="light-style layout-wide customizer-hide" dir="ltr" data-theme="theme-default" data-assets-path="<%= assetsUrl %>" data-template="horizontal-menu-template">
+  <head>
+    <%- include('../_layouts/elements-head') %>
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="<%= assetsUrl %>vendor/libs/sweetalert2/sweetalert2.css" />
+    <link rel="stylesheet" href="<%= assetsUrl %>vendor/libs/spinkit/spinkit.css" />
+
+    <!-- Page CSS -->
+    
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <!-- Menu -->
+        <%- include('../_layouts/elements-menu-approver') %>
+        <!-- / Menu -->
+
+        <!-- Layout container -->
+        <div class="layout-page">
+          <!-- Navbar -->
+          <%- include('../_layouts/elements-navbar') %>
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="py-3 mb-4"><span class="text-muted fw-light">Dasbor /</span> Kelola Kendaraan</h4>
+              <button type="button" class="btn rounded-pill btn-label-primary" data-bs-toggle="modal" data-bs-target="#modalAddVehicle"><span class="ti-xs ti ti-hash me-1"></span>Tambah Kendaraan</button>
+
+              <!-- Borderless Table -->
+              <div class="card mt-3 card-table">
+                <h5 class="card-header">Daftar Kendaraan</h5>
+                <div class="table-responsive text-nowrap">
+                  <table class="table table-borderless">
+                    <thead>
+                      <tr>
+                        <th>Nama</th>
+                        <th>Plat Nomer</th>
+                        <th>Status</th>
+                        <th>Di Buat</th>
+                        <th>Aksi</th>
+                      </tr>
+                    </thead>
+                    <tbody id="listVehicles">
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!--/ Borderless Table -->
+              
+              <!-- Modal Tambah Kendaraan -->
+              <div class="modal fade" id="modalAddVehicle" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modalCenterTitle">Tambah Kendaraan</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form class="modal-body formAddVehicle" method="POST">
+                      <div class="row">
+                        <div class="col-6 mb-3">
+                          <label for="name" class="form-label">Nama</label>
+                          <input type="text" id="name" name="name" class="form-control" placeholder="Masukkan nama kendaraan" />
+                        </div>
+                        <div class="col-6 mb-3">
+                          <label for="licensePlate" class="form-label">Plat Nomer</label>
+                          <input type="text" id="licensePlate" name="licensePlate" class="form-control" placeholder="Masukkan plat nomer kendaraan" />
+                        </div>
+                        <div class="col-6 mb-3">
+                          <label for="thumbnail" class="form-label">Thumbnail</label>
+                          <input type="text" id="thumbnail" name="thumbnail" class="form-control" placeholder="Masukkan thumbnail url kendaraan" />
+                        </div>
+                        <div class="col-6 mb-3">
+                          <label for="type" class="form-label">Tipe</label>
+                          <select class="form-control" id="type" name="type">
+                            <option value="people-transport" selected="">Angkutan Orang</option>
+                            <option value="freight-transport">Angkutan Barang</option>
+                          </select>
+                        </div>
+                        <div class="col-12 mb-3">
+                          <label for="Description" class="form-label">Deskripsi</label>
+                          <textarea class="form-control" name="description" id="Description" rows="4" placeholder="Deskripsi kendaraan"></textarea>
+                        </div>
+                        <div class="col-12">
+                          <button type="submit" class="btn btn-primary me-2 d-grid w-100">Tambah Kendaraan</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Modal Edit Kendaraan -->
+              <div class="modal fade" id="modalEditVehicle" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modalCenterTitle">Edit Kendaraan</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form class="modal-body formEditVehicle" method="POST">
+                      <div class="row">
+                        <div class="col-6 mb-3">
+                          <label for="editName" class="form-label">Nama</label>
+                          <input type="text" id="editName" name="name" class="form-control" placeholder="Masukkan nama kendaraan" />
+                        </div>
+                        <div class="col-6 mb-3">
+                          <label for="editLicensePlate" class="form-label">Plat Nomer</label>
+                          <input type="text" id="editLicensePlate" name="licensePlate" class="form-control" placeholder="Masukkan plat nomer kendaraan" />
+                        </div>
+                        <div class="col-12 mb-3">
+                          <label for="editThumbnail" class="form-label">Thumbnail</label>
+                          <input type="text" id="editThumbnail" name="thumbnail" class="form-control" placeholder="Masukkan thumbnail url kendaraan" />
+                        </div>
+                        <div class="col-6 mb-3">
+                          <label for="editType" class="form-label">Tipe</label>
+                          <select class="form-control" id="editType" name="type">
+                            <option value="people-transport">Angkutan Orang</option>
+                            <option value="freight-transport">Angkutan Barang</option>
+                          </select>
+                        </div>
+                        <div class="col-6 mb-3">
+                          <label for="editStatus" class="form-label">Status</label>
+                          <select class="form-control" id="editStatus" name="status">
+                            <option value="available">Tersedia</option>
+                            <option value="maintenance">Perbaikan</option>
+                          </select>
+                        </div>
+                        <div class="col-12 mb-3">
+                          <label for="editDescription" class="form-label">Deskripsi</label>
+                          <textarea class="form-control" name="description" id="editDescription" rows="4" placeholder="Deskripsi kendaraan"></textarea>
+                        </div>
+                        <div class="col-12">
+                          <button type="submit" class="btn btn-primary me-2 d-grid w-100">Simpan Perubahan</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <!-- / Content -->
+
+            <!-- Footer -->
+            <%- include('../_layouts/elements-footer') %>
+            <!-- / Footer -->
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+
+      <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+      <div class="drag-target"></div>
+    </div>
+    <!-- / Layout wrapper -->
+    
+    <!-- Core JS -->
+    <%- include('../_layouts/elements-js') %>
+
+    <!-- Vendors JS -->
+    <script src="<%= assetsUrl %>vendor/libs/moment/moment.js"></script>
+    <script src="<%= assetsUrl %>vendor/libs/sweetalert2/sweetalert2.js"></script>
+    <script src="<%= assetsUrl %>vendor/libs/block-ui/block-ui.js"></script>
+    
+    <!-- Page JS -->
+    <script src="/assets/js/pages-vehicle.js"></script>
+    
+  </body>
+</html>

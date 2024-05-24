@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" class="light-style layout-wide customizer-hide" dir="ltr" data-theme="theme-default" data-assets-path="<%= assetsUrl %>" data-template="horizontal-menu-template">
+  <head>
+    <%- include('../_layouts/elements-head') %>
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="<%= assetsUrl %>vendor/css/pages/page-misc.css" />
+
+    <!-- Page CSS -->
+    
+  </head>
+
+  <body>
+    <!-- Content -->
+
+    <!-- Error -->
+    <div class="container-xxl container-p-y">
+      <div class="misc-wrapper">
+        <h2 class="mb-1 mt-4">Page Not Found :(</h2>
+        <p class="mb-4 mx-2">Oops! 😖 The requested URL was not found on this server.</p>
+        <a href="/u/" class="btn btn-primary mb-4">Back to home</a>
+        <div class="mt-4">
+          <img src="<%= assetsUrl %>img/illustrations/page-misc-error.png" alt="page-misc-error" width="225" class="img-fluid" />
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid misc-bg-wrapper">
+      <img src="<%= assetsUrl %>img/illustrations/bg-shape-image-light.png" alt="page-misc-error" data-app-light-img="illustrations/bg-shape-image-light.png" data-app-dark-img="illustrations/bg-shape-image-dark.png" />
+    </div>
+    <!-- /Error -->
+
+    <!-- / Content -->
+    
+    <!-- Core JS -->
+    <%- include('../_layouts/elements-js') %>
+
+    <!-- Vendors JS -->
+    
+    <!-- Page JS -->
+    
+  </body>
+</html>

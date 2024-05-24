@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" class="light-style layout-wide customizer-hide" dir="ltr" data-theme="theme-default" data-assets-path="<%= assetsUrl %>" data-template="horizontal-menu-template">
+  <head>
+    <%- include('../_layouts/elements-head') %>
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="<%= assetsUrl %>vendor/libs/spinkit/spinkit.css" />
+    <link rel="stylesheet" href="<%= assetsUrl %>vendor/libs/datatables-bs5/datatables.bootstrap5.css">
+    <link rel="stylesheet" href="<%= assetsUrl %>vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css">
+    <link rel="stylesheet" href="<%= assetsUrl %>vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css">
+
+    <!-- Page CSS -->
+    
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <!-- Menu -->
+        <%- include('../_layouts/elements-menu-approver') %>
+        <!-- / Menu -->
+
+        <!-- Layout container -->
+        <div class="layout-page">
+          <!-- Navbar -->
+          <%- include('../_layouts/elements-navbar') %>
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="py-3 mb-4"><span class="text-muted fw-light">Dasbor /</span> Laporan Pemesanan</h4>
+
+              <!-- DataTable with Buttons -->
+              <div class="card">
+                <div class="card-datatable table-responsive pt-0">
+                  <table class="datatables-basic table">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>Kendaraan</th>
+                        <th>Diminta oleh</th>
+                        <th>Mulai tanggal</th>
+                        <th>Tanggal Berakhir</th>
+                        <th>Status</th>
+                        <th>Disetujui oleh</th>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+              </div>
+              
+            </div>
+            <!-- / Content -->
+
+            <!-- Footer -->
+            <%- include('../_layouts/elements-footer') %>
+            <!-- / Footer -->
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+
+      <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+      <div class="drag-target"></div>
+    </div>
+    <!-- / Layout wrapper -->
+    
+    <!-- Core JS -->
+    <%- include('../_layouts/elements-js') %>
+
+    <!-- Vendors JS -->
+    <script src="<%= assetsUrl %>vendor/libs/block-ui/block-ui.js"></script>
+    <script src="<%= assetsUrl %>vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+    
+    <!-- Page JS -->
+    <script src="/assets/js/pages-report.js"></script>
+    
+  </body>
+</html>
