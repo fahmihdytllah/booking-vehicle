@@ -1,4 +1,23 @@
 # Aplikasi Pemesanan Kendaraan
+Aplikasi Pemesanan Kendaraan adalah sistem manajemen pemesanan kendaraan yang dirancang untuk memfasilitasi administrasi dan persetujuan penggunaan kendaraan di dalam organisasi. Aplikasi ini memungkinkan admin untuk membuat pemesanan kendaraan dengan menentukan kendaraan, driver, dan pihak yang menyetujui pemesanan. Sistem ini mendukung proses persetujuan berjenjang, di mana minimal dua level persetujuan diperlukan untuk validasi pemesanan.
+
+## Fitur Utama:
+- **Manajemen Pemesanan**: Admin dapat dengan mudah membuat dan mengelola pemesanan kendaraan.
+- **Persetujuan Berjenjang**: Pemesanan memerlukan persetujuan dari minimal dua level approvers, memastikan proses yang transparan dan terverifikasi.
+- **Dashboard**: Admin dapat melihat status pemesanan melalui dashboard yang intuitif.
+- **Laporan**: Kemampuan untuk menghasilkan dan mengekspor laporan pemesanan dalam format Excel.
+- **User Management**: Mendukung manajemen user dengan peran admin dan approver.
+- **Logging**: Semua tindakan dicatat dalam log aplikasi untuk audit dan pelacakan.
+
+Aplikasi ini dibangun menggunakan Node.js dengan framework Express untuk backend, dan EJS untuk rendering halaman di frontend. Aplikasi ini menggunakan MongoDB sebagai database untuk penyimpanan data.
+
+## Teknologi yang Digunakan:
+- **Backend**: Node.js, Express.js
+- **Frontend**: EJS
+- **Database**: MongoDB
+- **Autentikasi**: JWT (JSON Web Tokens)
+
+Aplikasi ini dirancang dengan antarmuka yang responsif dan mudah digunakan, memastikan pengalaman pengguna yang optimal di berbagai perangkat.
 
 ## Daftar Isi
 - [Daftar Username dan Password](#daftar-username-dan-password)
